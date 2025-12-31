@@ -67,8 +67,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Poppins', 'Inter', 'sans-serif'],
-        display: ['Poppins', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
+        display: ['Orbitron', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -86,10 +86,10 @@ export default {
         },
         "pulse-glow": {
           "0%, 100%": {
-            boxShadow: "0 0 20px hsl(181 58% 45% / 0.3), 0 0 40px hsl(181 58% 45% / 0.1)",
+            boxShadow: "0 0 20px hsl(177 71% 47% / 0.3), 0 0 40px hsl(177 71% 47% / 0.1)",
           },
           "50%": {
-            boxShadow: "0 0 40px hsl(181 58% 45% / 0.5), 0 0 80px hsl(181 58% 45% / 0.2)",
+            boxShadow: "0 0 40px hsl(177 71% 47% / 0.5), 0 0 80px hsl(177 71% 47% / 0.2)",
           },
         },
         "float": {
