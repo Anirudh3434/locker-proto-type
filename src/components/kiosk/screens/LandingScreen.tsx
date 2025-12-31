@@ -10,89 +10,72 @@ interface LandingScreenProps {
 export const LandingScreen = ({ onDeliver, onCollect }: LandingScreenProps) => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div 
-            className="w-full h-full"
-            style={{
-              backgroundImage: `
-                linear-gradient(to right, hsl(177 71% 47% / 0.1) 1px, transparent 1px),
-                linear-gradient(to bottom, hsl(177 71% 47% / 0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: "50px 50px",
-            }}
-          />
-        </div>
+      {/* Lokr gradient background */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: "linear-gradient(180deg, hsl(243 45% 30%) 0%, hsl(243 45% 15%) 100%)",
+        }}
+      />
 
-        {/* Floating orbs */}
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/5 blur-3xl"
-          animate={{
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-secondary/5 blur-3xl"
-          animate={{
-            x: [0, -40, 0],
-            y: [0, -40, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
+      {/* Decorative curved shape at top */}
+      <div className="absolute top-0 right-0 w-2/3 h-48 md:h-64">
+        <svg viewBox="0 0 400 200" className="w-full h-full" preserveAspectRatio="none">
+          <path
+            d="M400 0 L400 180 Q300 200 200 150 Q100 100 0 180 L0 0 Z"
+            fill="hsl(243 45% 40%)"
+            opacity="0.6"
+          />
+        </svg>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center">
+      <div className="relative z-10 flex flex-col items-center px-6 w-full max-w-md mx-auto">
         {/* Logo/Title */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="inline-flex items-center gap-4 mb-6"
+            className="inline-flex items-center gap-2 mb-4"
             animate={{ 
               filter: [
-                "drop-shadow(0 0 20px hsl(177 71% 47% / 0.3))",
-                "drop-shadow(0 0 40px hsl(177 71% 47% / 0.5))",
-                "drop-shadow(0 0 20px hsl(177 71% 47% / 0.3))",
+                "drop-shadow(0 0 10px hsl(181 58% 45% / 0.3))",
+                "drop-shadow(0 0 20px hsl(181 58% 45% / 0.5))",
+                "drop-shadow(0 0 10px hsl(181 58% 45% / 0.3))",
               ]
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center">
-              <Package size={36} className="text-primary" />
+            {/* Lokr Logo */}
+            <div className="flex items-center">
+              <div className="w-3 h-10 bg-primary rounded-sm mr-1" />
+              <span className="font-display text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+                okr
+              </span>
             </div>
           </motion.div>
           
-          <h1 className="font-display text-5xl md:text-6xl font-bold tracking-wider text-gradient mb-4">
-            SMART LOCKER
-          </h1>
-          <p className="text-lg text-muted-foreground tracking-wide">
-            Secure • Fast • Convenient
+          <p className="text-base md:text-lg text-foreground/70 tracking-wide mt-6">
+            Smart Locker Solutions
           </p>
         </motion.div>
 
-        {/* Main buttons */}
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12">
+        {/* Main buttons - stacked for mobile */}
+        <div className="flex flex-col gap-6 w-full">
           <KioskButton
             icon={Package}
-            label="DELIVER"
-            sublabel="Drop off your parcel"
+            label="DELIVER PARCEL"
+            sublabel="Drop off your package"
             onClick={onDeliver}
             variant="primary"
           />
           <KioskButton
             icon={PackageCheck}
-            label="COLLECT"
-            sublabel="Pick up your parcel"
+            label="COLLECT PARCEL"
+            sublabel="Pick up your package"
             onClick={onCollect}
             variant="secondary"
           />
@@ -100,12 +83,23 @@ export const LandingScreen = ({ onDeliver, onCollect }: LandingScreenProps) => {
 
         {/* Touch hint */}
         <motion.p
-          className="mt-16 text-sm text-muted-foreground tracking-widest uppercase"
+          className="mt-12 text-sm text-foreground/50 tracking-widest uppercase"
           animate={{ opacity: [0.3, 0.7, 0.3] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
           Touch to begin
         </motion.p>
+      </div>
+
+      {/* Decorative curved shape at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 md:h-40">
+        <svg viewBox="0 0 400 100" className="w-full h-full" preserveAspectRatio="none">
+          <path
+            d="M0 100 L0 20 Q100 0 200 40 Q300 80 400 20 L400 100 Z"
+            fill="hsl(181 58% 45%)"
+            opacity="0.9"
+          />
+        </svg>
       </div>
     </div>
   );
