@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LandingScreen } from "./screens/LandingScreen";
+import { UserIdScreen } from "./screens/UserIdScreen";
 import { SizeSelectionScreen } from "./screens/SizeSelectionScreen";
 import { ProcessingSelectionScreen } from "./screens/ProcessingSelectionScreen";
 import { LockerOpenScreen } from "./screens/LockerOpenScreen";
@@ -12,6 +13,7 @@ import { ReviewScreen } from "./screens/ReviewScreen";
 
 type Screen =
   | "landing"
+  | "user-id"
   | "size-selection"
   | "processing-selection"
   | "locker-open"
@@ -33,7 +35,7 @@ export const SmartLockerKiosk = () => {
 
   const handleDeliver = () => {
     setMode("deliver");
-    setCurrentScreen("size-selection");
+    setCurrentScreen("user-id");
   };
 
   const handleCollect = () => {
@@ -41,10 +43,17 @@ export const SmartLockerKiosk = () => {
     setCurrentScreen("fetching");
   };
 
+  const handleUserIdContinue = () => {
+    setCurrentScreen("size-selection");
+  };
+
   const handleBack = useCallback(() => {
     switch (currentScreen) {
-      case "size-selection":
+      case "user-id":
         setCurrentScreen("landing");
+        break;
+      case "size-selection":
+        setCurrentScreen("user-id");
         break;
       case "processing-selection":
         setCurrentScreen("size-selection");
@@ -118,6 +127,10 @@ export const SmartLockerKiosk = () => {
         >
           {currentScreen === "landing" && (
             <LandingScreen onDeliver={handleDeliver} onCollect={handleCollect} />
+          )}
+
+          {currentScreen === "user-id" && (
+            <UserIdScreen onContinue={handleUserIdContinue} onBack={handleBack} />
           )}
 
           {currentScreen === "size-selection" && (
