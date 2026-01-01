@@ -7,6 +7,7 @@ import { LockerOpenScreen } from "./screens/LockerOpenScreen";
 import { InstructionsScreen } from "./screens/InstructionsScreen";
 import { DoorClosedScreen } from "./screens/DoorClosedScreen";
 import { FetchingScreen } from "./screens/FetchingScreen";
+import { ActiveBookingsScreen } from "./screens/ActiveBookingsScreen";
 import { OTPScreen } from "./screens/OTPScreen";
 import { ReviewScreen } from "./screens/ReviewScreen";
 
@@ -15,10 +16,10 @@ type Screen =
   | "booking-id"
   | "size-selection"
   | "locker-open"
-  | "locker-open"
   | "instructions"
   | "door-closed"
   | "fetching"
+  | "active-bookings"
   | "otp"
   | "collect-locker-open"
   | "collect-instructions"
@@ -54,8 +55,11 @@ export const SmartLockerKiosk = () => {
       case "size-selection":
         setCurrentScreen("booking-id");
         break;
-      case "otp":
+      case "active-bookings":
         setCurrentScreen("landing");
+        break;
+      case "otp":
+        setCurrentScreen("active-bookings");
         break;
       default:
         setCurrentScreen("landing");
@@ -79,8 +83,12 @@ export const SmartLockerKiosk = () => {
   };
 
   const handleFetchingComplete = useCallback(() => {
-    setCurrentScreen("otp");
+    setCurrentScreen("active-bookings");
   }, []);
+
+  const handleSelectBooking = () => {
+    setCurrentScreen("otp");
+  };
 
   const handleOTPVerify = () => {
     setCurrentScreen("collect-locker-open");
@@ -143,6 +151,10 @@ export const SmartLockerKiosk = () => {
 
           {currentScreen === "fetching" && (
             <FetchingScreen onComplete={handleFetchingComplete} />
+          )}
+
+          {currentScreen === "active-bookings" && (
+            <ActiveBookingsScreen onSelectBooking={handleSelectBooking} onBack={handleBack} />
           )}
 
           {currentScreen === "otp" && (
