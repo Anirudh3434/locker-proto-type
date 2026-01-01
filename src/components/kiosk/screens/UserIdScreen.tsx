@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, User } from "lucide-react";
+import { ArrowLeft, ArrowRight, Hash } from "lucide-react";
 import { ActionButton } from "../ActionButton";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-interface UserIdScreenProps {
-  onContinue: (userId: string) => void;
+interface BookingIdScreenProps {
+  onContinue: (bookingId: string) => void;
   onBack: () => void;
 }
 
-export const UserIdScreen = ({ onContinue, onBack }: UserIdScreenProps) => {
-  const [userId, setUserId] = useState("");
+export const BookingIdScreen = ({ onContinue, onBack }: BookingIdScreenProps) => {
+  const [bookingId, setBookingId] = useState("");
 
   const handleContinue = () => {
-    if (userId.trim()) {
-      onContinue(userId.trim());
+    if (bookingId.trim()) {
+      onContinue(bookingId.trim());
     }
   };
 
@@ -35,7 +35,7 @@ export const UserIdScreen = ({ onContinue, onBack }: UserIdScreenProps) => {
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
           >
-            <User className="w-12 h-12 text-primary" />
+            <Hash className="w-12 h-12 text-primary" />
           </motion.div>
           <motion.h2
             className="font-display text-4xl font-bold text-foreground mb-4"
@@ -43,7 +43,7 @@ export const UserIdScreen = ({ onContinue, onBack }: UserIdScreenProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            ENTER USER ID
+            ENTER BOOKING ID
           </motion.h2>
           <motion.p
             className="text-lg text-muted-foreground"
@@ -51,7 +51,7 @@ export const UserIdScreen = ({ onContinue, onBack }: UserIdScreenProps) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            Please enter your User ID to continue
+            Please enter your Booking ID to continue
           </motion.p>
         </div>
 
@@ -62,15 +62,15 @@ export const UserIdScreen = ({ onContinue, onBack }: UserIdScreenProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <Label htmlFor="userId" className="text-foreground text-lg mb-3 block">
-            User ID
+          <Label htmlFor="bookingId" className="text-foreground text-lg mb-3 block">
+            Booking ID
           </Label>
           <Input
-            id="userId"
+            id="bookingId"
             type="text"
-            placeholder="Enter your User ID"
-            value={userId}
-            onChange={(e) => setUserId(e.target.value)}
+            placeholder="Enter your Booking ID"
+            value={bookingId}
+            onChange={(e) => setBookingId(e.target.value)}
             className="h-16 text-xl text-center bg-card border-border focus:border-primary focus:ring-primary tracking-wider"
             autoFocus
           />
@@ -94,7 +94,7 @@ export const UserIdScreen = ({ onContinue, onBack }: UserIdScreenProps) => {
             label="Continue"
             variant="primary"
             onClick={handleContinue}
-            disabled={!userId.trim()}
+            disabled={!bookingId.trim()}
           />
         </motion.div>
       </motion.div>

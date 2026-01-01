@@ -1,9 +1,8 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LandingScreen } from "./screens/LandingScreen";
-import { UserIdScreen } from "./screens/UserIdScreen";
+import { BookingIdScreen } from "./screens/UserIdScreen";
 import { SizeSelectionScreen } from "./screens/SizeSelectionScreen";
-import { ProcessingSelectionScreen } from "./screens/ProcessingSelectionScreen";
 import { LockerOpenScreen } from "./screens/LockerOpenScreen";
 import { InstructionsScreen } from "./screens/InstructionsScreen";
 import { DoorClosedScreen } from "./screens/DoorClosedScreen";
@@ -13,9 +12,9 @@ import { ReviewScreen } from "./screens/ReviewScreen";
 
 type Screen =
   | "landing"
-  | "user-id"
+  | "booking-id"
   | "size-selection"
-  | "processing-selection"
+  | "locker-open"
   | "locker-open"
   | "instructions"
   | "door-closed"
@@ -35,7 +34,7 @@ export const SmartLockerKiosk = () => {
 
   const handleDeliver = () => {
     setMode("deliver");
-    setCurrentScreen("user-id");
+    setCurrentScreen("booking-id");
   };
 
   const handleCollect = () => {
@@ -43,20 +42,17 @@ export const SmartLockerKiosk = () => {
     setCurrentScreen("fetching");
   };
 
-  const handleUserIdContinue = () => {
+  const handleBookingIdContinue = () => {
     setCurrentScreen("size-selection");
   };
 
   const handleBack = useCallback(() => {
     switch (currentScreen) {
-      case "user-id":
+      case "booking-id":
         setCurrentScreen("landing");
         break;
       case "size-selection":
-        setCurrentScreen("user-id");
-        break;
-      case "processing-selection":
-        setCurrentScreen("size-selection");
+        setCurrentScreen("booking-id");
         break;
       case "otp":
         setCurrentScreen("landing");
@@ -67,10 +63,6 @@ export const SmartLockerKiosk = () => {
   }, [currentScreen]);
 
   const handleSizeSelect = () => {
-    setCurrentScreen("processing-selection");
-  };
-
-  const handleProcessingSelect = () => {
     setCurrentScreen("locker-open");
   };
 
@@ -129,16 +121,12 @@ export const SmartLockerKiosk = () => {
             <LandingScreen onDeliver={handleDeliver} onCollect={handleCollect} />
           )}
 
-          {currentScreen === "user-id" && (
-            <UserIdScreen onContinue={handleUserIdContinue} onBack={handleBack} />
+          {currentScreen === "booking-id" && (
+            <BookingIdScreen onContinue={handleBookingIdContinue} onBack={handleBack} />
           )}
 
           {currentScreen === "size-selection" && (
             <SizeSelectionScreen onSelect={handleSizeSelect} onBack={handleBack} />
-          )}
-
-          {currentScreen === "processing-selection" && (
-            <ProcessingSelectionScreen onSelect={handleProcessingSelect} onBack={handleBack} />
           )}
 
           {currentScreen === "locker-open" && (
