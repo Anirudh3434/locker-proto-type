@@ -118,7 +118,21 @@ export const SmartLockerKiosk = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background overflow-hidden">
+    <div className="min-h-screen overflow-hidden relative">
+      {/* Gradient background */}
+      <div 
+        className="fixed inset-0 -z-10"
+        style={{
+          background: 'linear-gradient(135deg, hsl(277 95% 8%) 0%, hsl(277 60% 12%) 30%, hsl(220 50% 10%) 60%, hsl(185 40% 15%) 100%)'
+        }}
+      />
+      {/* Subtle glow overlay */}
+      <div 
+        className="fixed inset-0 -z-10 opacity-30"
+        style={{
+          background: 'radial-gradient(ellipse at top right, hsl(185 68% 52% / 0.2) 0%, transparent 50%), radial-gradient(ellipse at bottom left, hsl(277 95% 21% / 0.3) 0%, transparent 50%)'
+        }}
+      />
       <AnimatePresence mode="wait">
         <motion.div
           key={currentScreen}
