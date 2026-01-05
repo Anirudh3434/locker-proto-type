@@ -13,8 +13,7 @@ export const KioskButton = ({
   icon: Icon,
   label,
   sublabel,
-  onClick,
-  variant = "primary",
+  onClick
 }: KioskButtonProps) => {
   return (
     <motion.button
@@ -23,22 +22,15 @@ export const KioskButton = ({
         relative group w-72 h-72 md:w-80 md:h-80 rounded-3xl
         glass-strong flex flex-col items-center justify-center gap-6
         transition-all duration-300 cursor-pointer overflow-hidden
-        ${variant === "primary" ? "border-primary/30" : "border-secondary/30"}
+        border-primary/30
       `}
-      whileHover={{ scale: 1.05, y: -10 }}
-      whileTap={{ scale: 0.98 }}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       {/* Animated glow background */}
       <motion.div
         className={`
-          absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500
-          ${variant === "primary" 
-            ? "bg-gradient-to-br from-primary/20 to-secondary/10" 
-            : "bg-gradient-to-br from-secondary/20 to-primary/10"
-          }
+          absolute inset-0 rounded-3xl opacity-0 
+          bg-gradient-to-br from-primary/20 to-secondary/10
         `}
         animate={{
           boxShadow: [
@@ -54,7 +46,7 @@ export const KioskButton = ({
       <motion.div
         className={`
           absolute inset-4 rounded-2xl border-2
-          ${variant === "primary" ? "border-primary/40" : "border-secondary/40"}
+          border-primary/40
         `}
         animate={{
           scale: [1, 1.02, 1],
@@ -67,10 +59,8 @@ export const KioskButton = ({
       <motion.div
         className={`
           relative z-10 p-6 rounded-2xl
-          ${variant === "primary" 
-            ? "bg-primary/10 text-primary" 
-            : "bg-secondary/10 text-secondary"
-          }
+          bg-gradient-to-r from-primary to-secondary
+          text-white
         `}
         animate={{ y: [0, -5, 0] }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -80,7 +70,7 @@ export const KioskButton = ({
 
       {/* Labels */}
       <div className="relative z-10 text-center">
-        <h3 className="font-display text-2xl font-bold tracking-wider text-foreground">
+        <h3 className="font-display text-2xl font-bold tracking-wider text-black">
           {label}
         </h3>
         {sublabel && (
@@ -90,13 +80,13 @@ export const KioskButton = ({
 
       {/* Corner accents */}
       <div className={`absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 rounded-tl-lg
-        ${variant === "primary" ? "border-primary/50" : "border-secondary/50"}`} />
+        border-primary/50`} />
       <div className={`absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 rounded-tr-lg
-        ${variant === "primary" ? "border-primary/50" : "border-secondary/50"}`} />
+        border-primary/50`} />
       <div className={`absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 rounded-bl-lg
-        ${variant === "primary" ? "border-primary/50" : "border-secondary/50"}`} />
+        border-primary/50`} />
       <div className={`absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 rounded-br-lg
-        ${variant === "primary" ? "border-primary/50" : "border-secondary/50"}`} />
+        border-primary/50`} />
     </motion.button>
   );
 };
