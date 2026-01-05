@@ -30,12 +30,12 @@ export const BookingIdScreen = ({ onContinue, onBack }: BookingIdScreenProps) =>
         {/* Header */}
         <div className="text-center mb-12">
           <motion.div
-            className="w-24 h-24 mx-auto mb-6 rounded-full bg-primary/20 flex items-center justify-center"
+            className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#320367] to-[#2DC8DA]  flex items-center justify-center"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
           >
-            <Hash className="w-12 h-12 text-primary" />
+            <Hash className="w-12 h-12 text-white" />
           </motion.div>
           <motion.h2
             className="font-display text-4xl font-bold text-foreground mb-4"
@@ -71,7 +71,7 @@ export const BookingIdScreen = ({ onContinue, onBack }: BookingIdScreenProps) =>
             placeholder="Enter your Booking ID"
             value={bookingId}
             onChange={(e) => setBookingId(e.target.value)}
-            className="h-16 text-xl text-center bg-card border-border focus:border-primary focus:ring-primary tracking-wider"
+            className="h-16 text-xl text-center bg-transparent border-border  tracking-wider"
             autoFocus
           />
         </motion.div>

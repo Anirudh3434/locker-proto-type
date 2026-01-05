@@ -35,11 +35,7 @@ export const DoorClosedScreen = ({ mode, onConfirm }: DoorClosedScreenProps) => 
               className="w-32 h-32 mx-auto mb-8 rounded-3xl bg-warning/10 border border-warning/30 flex items-center justify-center"
               animate={{
                 scale: [1, 1.05, 1],
-                boxShadow: [
-                  "0 0 20px hsl(38 92% 50% / 0.2)",
-                  "0 0 40px hsl(38 92% 50% / 0.4)",
-                  "0 0 20px hsl(38 92% 50% / 0.2)",
-                ],
+
               }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >

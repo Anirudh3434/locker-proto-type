@@ -26,18 +26,9 @@ export const InstructionSlide = ({
     >
       {/* Icon with animation */}
       <motion.div
-        className="w-32 h-32 rounded-3xl bg-primary/10 border border-primary/30 flex items-center justify-center"
-        animate={{ 
-          y: [0, -10, 0],
-          boxShadow: [
-            "0 0 20px hsl(177 71% 47% / 0.2)",
-            "0 0 40px hsl(177 71% 47% / 0.4)",
-            "0 0 20px hsl(177 71% 47% / 0.2)",
-          ],
-        }}
-        transition={{ duration: 2, repeat: Infinity }}
+        className="w-32 h-32 rounded-3xl bg-gradient-to-r from-[#320367] to-[#2DC8DA] border-none flex items-center justify-center shadow-none"
       >
-        <Icon size={64} className="text-primary" strokeWidth={1.5} />
+        <Icon size={64} className="text-white" strokeWidth={1.5} />
       </motion.div>
 
       {/* Content */}
@@ -56,7 +47,7 @@ export const InstructionSlide = ({
           <motion.div
             key={i}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              i === step - 1 ? "bg-primary w-8" : "bg-muted"
+              i === step - 1 ? "bg-gradient-to-r from-[#320367] to-[#2DC8DA] w-8" : "bg-muted"
             }`}
             animate={i === step - 1 ? { scale: [1, 1.2, 1] } : {}}
             transition={{ duration: 1, repeat: Infinity }}

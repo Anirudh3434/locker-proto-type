@@ -12,7 +12,7 @@ export const LoadingSpinner = ({ text = "Processing...", showScanner = false }: 
         /* Scanner animation */
         <div className="relative w-48 h-48">
           {/* Scanner frame */}
-          <div className="absolute inset-0 rounded-2xl border-2 border-primary/50">
+          <div className="absolute inset-0 rounded-2xl border-2 border-gradient-to-r from-primary to-transparent">
             {/* Corner brackets */}
             <div className="absolute top-0 left-0 w-8 h-8 border-l-4 border-t-4 border-primary rounded-tl-lg" />
             <div className="absolute top-0 right-0 w-8 h-8 border-r-4 border-t-4 border-primary rounded-tr-lg" />
@@ -22,7 +22,7 @@ export const LoadingSpinner = ({ text = "Processing...", showScanner = false }: 
 
           {/* Scanning line */}
           <motion.div
-            className="absolute left-4 right-4 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full"
+            className="absolute left-4 right-4 h-1 bg-gradient-to-r from-[#320367] to-[#2DC8DA] rounded-full"
             animate={{
               top: ["10%", "85%", "10%"],
             }}

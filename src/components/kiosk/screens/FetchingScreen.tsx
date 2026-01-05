@@ -28,7 +28,7 @@ export const FetchingScreen = ({ onComplete }: FetchingScreenProps) => {
         </div>
 
         <motion.div
-          className="glass-strong rounded-2xl p-6 max-w-sm mx-auto"
+          className="glass-strong rounded-2xl p-6 max-w-sm mx-auto bg-gradient-to-br from-primary/10 via-primary/5 to-transparent"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}

@@ -46,17 +46,9 @@ export const OTPScreen = ({ onVerify, onBack }: OTPScreenProps) => {
           <>
             {/* Header */}
             <motion.div
-              className="w-24 h-24 mx-auto mb-8 rounded-3xl bg-primary/10 border border-primary/30 flex items-center justify-center"
-              animate={{
-                boxShadow: [
-                  "0 0 20px hsl(177 71% 47% / 0.2)",
-                  "0 0 40px hsl(177 71% 47% / 0.4)",
-                  "0 0 20px hsl(177 71% 47% / 0.2)",
-                ],
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
+              className="w-24 h-24 mx-auto mb-8 rounded-3xl bg-gradient-to-r from-[#320367] to-[#2DC8DA] flex items-center justify-center"
             >
-              <ShieldCheck size={48} className="text-primary" />
+              <ShieldCheck size={48} className="text-white" />
             </motion.div>
 
             <h2 className="font-display text-4xl font-bold text-foreground mb-4">

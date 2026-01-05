@@ -8,6 +8,7 @@ interface ActionButtonProps {
   variant?: "primary" | "secondary" | "ghost";
   size?: "default" | "large";
   disabled?: boolean;
+  className?: string;
 }
 
 export const ActionButton = ({
@@ -17,6 +18,7 @@ export const ActionButton = ({
   variant = "primary",
   size = "default",
   disabled = false,
+  className,
 }: ActionButtonProps) => {
   const baseStyles = `
     relative flex items-center justify-center gap-3 font-display font-bold
@@ -25,21 +27,21 @@ export const ActionButton = ({
   `;
 
   const sizeStyles = size === "large" 
-    ? "px-12 py-6 text-xl" 
-    : "px-8 py-4 text-lg";
+    ? "px-6 py-3 text-xl" 
+    : "px-4 py-2 text-lg";
 
   const variantStyles = {
     primary: `
-      bg-primary text-primary-foreground
-      hover:shadow-[0_0_30px_hsl(177_71%_47%_/_0.5)]
+      bg-gradient-to-r from-[#320367] to-[#2DC8DA] text-white
+     
     `,
     secondary: `
       glass border border-primary/30 text-primary
-      hover:bg-primary/10 hover:border-primary/50
+   
     `,
     ghost: `
       bg-transparent text-muted-foreground
-      hover:text-foreground hover:bg-muted/50
+  
     `,
   };
 
@@ -47,21 +49,13 @@ export const ActionButton = ({
     <motion.button
       onClick={onClick}
       disabled={disabled}
-      className={`${baseStyles} ${sizeStyles} ${variantStyles[variant]}`}
+      className={`${baseStyles} ${sizeStyles} ${variantStyles[variant]} ${className || ''}`}
       whileHover={disabled ? {} : { scale: 1.02 }}
       whileTap={disabled ? {} : { scale: 0.98 }}
     >
       {variant === "primary" && !disabled && (
         <motion.div
-          className="absolute inset-0 rounded-xl bg-primary"
-          animate={{
-            boxShadow: [
-              "0 0 10px hsl(177 71% 47% / 0.3)",
-              "0 0 20px hsl(177 71% 47% / 0.5)",
-              "0 0 10px hsl(177 71% 47% / 0.3)",
-            ],
-          }}
-          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#320367] to-[#2DC8DA]"
         />
       )}
       
