@@ -119,18 +119,18 @@ export const SmartLockerKiosk = () => {
 
   return (
     <div className="min-h-screen overflow-hidden relative">
-      {/* Gradient background */}
+      {/* Light gradient background */}
       <div 
         className="fixed inset-0 -z-10"
         style={{
-          background: 'linear-gradient(135deg, hsl(277 95% 8%) 0%, hsl(277 60% 12%) 30%, hsl(220 50% 10%) 60%, hsl(185 40% 15%) 100%)'
+          background: 'linear-gradient(135deg, hsl(240 20% 98%) 0%, hsl(277 30% 95%) 30%, hsl(200 30% 96%) 60%, hsl(185 30% 94%) 100%)'
         }}
       />
       {/* Subtle glow overlay */}
       <div 
-        className="fixed inset-0 -z-10 opacity-30"
+        className="fixed inset-0 -z-10 opacity-40"
         style={{
-          background: 'radial-gradient(ellipse at top right, hsl(185 68% 52% / 0.2) 0%, transparent 50%), radial-gradient(ellipse at bottom left, hsl(277 95% 21% / 0.3) 0%, transparent 50%)'
+          background: 'radial-gradient(ellipse at top right, hsl(185 68% 70% / 0.15) 0%, transparent 50%), radial-gradient(ellipse at bottom left, hsl(277 70% 70% / 0.15) 0%, transparent 50%)'
         }}
       />
       <AnimatePresence mode="wait">

@@ -6,51 +6,51 @@
 
 @layer base {
   :root {
-    --background: 277 95% 4%;
-    --foreground: 210 40% 98%;
+    --background: 240 20% 98%;
+    --foreground: 277 60% 15%;
 
-    --card: 277 60% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 277 60% 15%;
 
-    --popover: 277 60% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 277 60% 15%;
 
-    --primary: 185 68% 52%;
-    --primary-foreground: 277 95% 10%;
+    --primary: 277 70% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 277 95% 21%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 185 68% 45%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 277 40% 15%;
-    --muted-foreground: 200 20% 70%;
+    --muted: 240 10% 92%;
+    --muted-foreground: 277 30% 40%;
 
-    --accent: 185 68% 52%;
-    --accent-foreground: 277 95% 10%;
+    --accent: 185 68% 45%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
     --success: 142 71% 45%;
-    --success-foreground: 210 40% 98%;
+    --success-foreground: 0 0% 100%;
 
     --warning: 38 92% 50%;
-    --warning-foreground: 277 95% 10%;
+    --warning-foreground: 277 60% 15%;
 
-    --border: 277 40% 20%;
-    --input: 277 40% 15%;
-    --ring: 185 68% 52%;
+    --border: 277 20% 85%;
+    --input: 277 20% 90%;
+    --ring: 277 70% 45%;
 
     --radius: 1rem;
 
     /* Custom gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(277 95% 21%) 0%, hsl(185 68% 52%) 100%);
-    --gradient-glass: linear-gradient(135deg, hsl(277 60% 12% / 0.8) 0%, hsl(277 60% 8% / 0.6) 100%);
-    --gradient-glow: radial-gradient(circle at center, hsl(185 68% 52% / 0.3) 0%, transparent 70%);
+    --gradient-primary: linear-gradient(135deg, hsl(277 70% 45%) 0%, hsl(185 68% 45%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.9) 0%, hsl(240 20% 98% / 0.8) 100%);
+    --gradient-glow: radial-gradient(circle at center, hsl(277 70% 45% / 0.15) 0%, transparent 70%);
 
     /* Shadows */
-    --shadow-glow: 0 0 30px hsl(185 68% 52% / 0.4);
-    --shadow-glow-lg: 0 0 60px hsl(185 68% 52% / 0.5);
-    --shadow-card: 0 8px 32px hsl(277 95% 4% / 0.5);
+    --shadow-glow: 0 0 30px hsl(277 70% 45% / 0.2);
+    --shadow-glow-lg: 0 0 60px hsl(277 70% 45% / 0.3);
+    --shadow-card: 0 8px 32px hsl(277 30% 30% / 0.1);
 
     --sidebar-background: 222 47% 6%;
     --sidebar-foreground: 210 40% 98%;
@@ -144,10 +144,10 @@
 
   @keyframes pulse-glow {
     0%, 100% {
-      box-shadow: 0 0 20px hsl(185 68% 52% / 0.3), 0 0 40px hsl(185 68% 52% / 0.1);
+      box-shadow: 0 0 20px hsl(277 70% 45% / 0.2), 0 0 40px hsl(277 70% 45% / 0.1);
     }
     50% {
-      box-shadow: 0 0 40px hsl(185 68% 52% / 0.5), 0 0 80px hsl(185 68% 52% / 0.2);
+      box-shadow: 0 0 40px hsl(277 70% 45% / 0.3), 0 0 80px hsl(277 70% 45% / 0.15);
     }
   }
 
